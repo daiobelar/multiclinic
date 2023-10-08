@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financeiro</title>
+    <!-- Inclua os links para os arquivos Bootstrap e jQuery, se necessário -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Seus outros links de estilo e scripts aqui -->
+    <link rel="stylesheet" type="text/css" href="seu-arquivo-de-estilo.css">
+    <style>
+        /* Estilização personalizada para as classes de despesas, estimativa e valores a pagar */
+        .badge-despesas {
+            background-color: #d9534f; /* Vermelho */
+            font-size: 24px;
+        }
+
+        .badge-estimativa {
+            background-color: #5bc0de; /* Azul */
+            font-size: 24px;
+        }
+
+        .badge-receber {
+            background-color: #5cb85c; /* Verde */
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MultiClinic</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Agenda</a></li>
+                <li><a href="novo-paciente.html">Cadastro de paciente</a></li>
+                <li><a href="atendimento.html">Atendimento</a></li>
+                <li><a href="prontuario.html">Prontuários</a></li>
+                <li><a href="financas.html">Finanças</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">Resumo Financeiro</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Valores a Pagar (Despesas do Profissional)</h2>
+                <p>Total a Pagar: R$ <span id="valores-pagar" class="badge badge-despesas">0.00</span></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Valores a Receber de Pacientes</h2>
+                <p>Total a Receber: R$ <span id="valores-receber" class="badge badge-receber">0.00</span></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Estimativa Financeira</h2>
+                <p>Saldo Estimado: R$ <span id="estimativa" class="badge badge-estimativa">0.00</span></p>
+            </div>
+        </div>
+
+        <!-- Formulário para Inserir Despesas -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Inserir Despesas</h2>
+                <form id="form-despesas">
+                    <div class="form-group">
+                        <label for="valor-despesas">Valor da Despesa:</label>
+                        <input type="text" class="form-control" id="valor-despesas" name="valor-despesas" placeholder="Digite o valor da despesa">
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao-despesas">Descrição:</label>
+                        <input type="text" class="form-control" id="descricao-despesas" name="descricao-despesas" placeholder="Digite a descrição da despesa">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Inserir Despesa</button>
+                </form>
+            </div>
+
+            <!-- Formulário para Inserir Valores a Receber -->
+            <div class="col-md-6">
+                <h2>Inserir Valores a Receber</h2>
+                <form id="form-receber">
+                    <div class="form-group">
+                        <label for="valor-receber">Valor a Receber:</label>
+                        <input type="text" class="form-control" id="valor-receber" name="valor-receber" placeholder="Digite o valor a receber">
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao-receber">Descrição:</label>
+                        <input type="text" class="form-control" id="descricao-receber" name="descricao-receber" placeholder="Digite a descrição do valor a receber">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Inserir Valor a Receber</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tabela para Listar Despesas -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Lista de Despesas</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-despesas">
+                        <!-- Os dados da tabela serão inseridos aqui dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabela para Listar Valores a Receber -->
+            <div class="col-md-6">
+                <h2>Lista de Valores a Receber</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-receber">
+                        <!-- Os dados da tabela serão inseridos aqui dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seus scripts adicionais aqui -->
+    <script>
+        // Valores a receber e a pagar (substitua com seus próprios valores)
+        var valoresReceber = 5000.00; // Substitua com seus próprios dados
+        var valoresPagar = 3000.00; // Substitua com seus próprios dados
+
+        // Calcula a estimativa
+        var estimativa = valoresReceber - valoresPagar;
+
+        // Exibe os valores calculados no HTML
+        document.getElementById('valores-receber').textContent = valoresReceber.toFixed(2);
+        document.getElementById('valores-pagar').textContent = valores

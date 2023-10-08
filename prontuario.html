@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Prontuário</title>
+    <!-- Inclua os links para os arquivos Bootstrap e jQuery, se necessário -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Seus outros links de estilo e scripts aqui -->
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Registro de Prontuário</h1>
+        
+        <!-- Seu menu responsivo com Bootstrap -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Agenda</a></li>
+                        <li><a href="novo-paciente.html">Cadastro de paciente</a></li>
+                        <li><a href="atendimento.html">Atendimento</a></li>
+                        <li><a href="prontuario.html">Prontuários</a></li>
+                        <li><a href="financas.html">Finanças</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <button type="submit" class="btn btn-primary" onClick="Nova()">Sair</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Seu formulário de registro de prontuário aqui -->
+        <form class="form-horizontal" id="prontuarioForm">
+            <fieldset>
+                <!-- Campos de formulário para registro de prontuário -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="data_prontuario">Data do Prontuário <span>*</span></label>
+                    <div class="col-md-4">
+                        <input id="data_prontuario" name="data_prontuario" class="form-control" type="date" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="cpf_paciente">CPF do Paciente <span>*</span></label>
+                    <div class="col-md-4">
+                        <input id="cpf_paciente" name="cpf_paciente" class="form-control" type="text" required>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary" onclick="buscarPaciente()">Buscar</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="descricao_prontuario">Descrição do Prontuário <span>*</span></label>
+                    <div class="col-md-6">
+                        <textarea id="descricao_prontuario" name="descricao_prontuario" class="form-control" rows="4" required></textarea>
+                    </div>
+                </div>
+                <!-- ... Outros campos de formulário ... -->
+                
+                <!-- Botões de ação -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="registrar_prontuario"></label>
+                    <div class="col-md-8">
+                        <button id="registrar_prontuario" name="registrar_prontuario" class="btn btn-success" type="button" onClick="salvarProntuario()">Salvar Prontuário</button>
+                        <button id="cancelar" name="cancelar" class="btn btn-danger" type="reset">Cancelar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    
+    <!-- Seus scripts e links de estilo adicionais aqui -->
+    <script>
+        function Nova() {
+            // Lógica para sair
+        }
+
+        //function buscar
